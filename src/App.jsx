@@ -2,12 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/navbar/navbarLightMode';
 import Title from './components/Text/title';
+import ItemListContainer from './container/itemlistcontainger';
 
 const App = () => {
   const persona = { nombre: "Mauro", altura: "170"};
   return (
     <div className="App" style={{fontSize: '20px', borderBotton: "1px solid red"}}>
       <NavBar />
+      <ItemListContainer />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <Title msj="Esto es un ecommerce" color="green">
