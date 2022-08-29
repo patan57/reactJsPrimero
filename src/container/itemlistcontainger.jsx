@@ -1,7 +1,8 @@
 const ItemListContainer = (greeting) => {
+    console.log(greeting);
     return( 
     <div>
-        Artículos deportivos importados
+        <h4 style={{borderStyle: greeting.borderStyle}}></h4>
     </div>
     )
 }

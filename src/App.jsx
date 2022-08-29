@@ -9,7 +9,10 @@ const App = () => {
   return (
     <div className="App" style={{fontSize: '20px', borderBotton: "1px solid red"}}>
       <NavBar />
-      <ItemListContainer />
+      <ItemListContainer borderStyle="solid">
+        <h4>Articulos deportivos importados</h4>
+      </ItemListContainer>
+
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <Title msj="Esto es un ecommerce" color="green">
