@@ -4,7 +4,7 @@ import CartWidget from './cartWidget';
     import "./navbarLightMode.css";
 
 
-    function NavBar() {
+    function NavBar({carritoLenght}) {
         return (
             <>
                 <Navbar bg="dark" variant="dark">
@@ -17,7 +17,7 @@ import CartWidget from './cartWidget';
                                 height="30"
                                 className="d-inline-block align-top"
                             />{' '}
-                            Falta Uno
+                            Tenes {carritoLenght} productos en el carrito
                             <div>
                                 <CartWidget float="right" />
                             </div>
