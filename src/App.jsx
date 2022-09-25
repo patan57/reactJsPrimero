@@ -1,9 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/navbar/navbarLightMode';
-import Title from './components/Text/title';
-import ItemListContainer from './container/itemlistcontainger';
+import Title from './components/Title/title';
+import ItemListContainer from './components/ItemCount/itemlistcontainer';
 import { useEffect, useState } from 'react';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 const App = () => {
   const [carrito, setCarrito] = useState([])
@@ -30,6 +31,7 @@ const App = () => {
   return (
     <div className="App" style={{ fontSize: '20px', borderBotton: "1px solid red" }}>
       <NavBar carritoLenght={carrito.length} categorias={categorias} />
+      <ItemDetailContainer />
       {productos.map((producto, index) =>{
         return(
           <div key={index}>
