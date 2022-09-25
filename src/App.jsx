@@ -9,14 +9,19 @@ const App = () => {
   const [carrito, setCarrito] = useState([])
   const [productos, setProductos] = useState([])
 
-  useEffect(() => {
-    console.log("holii");    
-    fetch('')
-    .then(response=> response.JSON())
-    .then(data => {
-      console.log(data.results);
+  const categorias = ['Zapatillas', 'Remeras', 'Camperas'];
+  
+  const buscarProductos = async () => {
+    try{
+      const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=`)
+      const data = await response.json();
       setProductos(data.results);
-    })
+      // console.log(e);
+    }catch(e){
+    }
+  }
+  useEffect(() => {
+    buscarProductos()
   }, [])
 
   console.log(productos)
@@ -24,15 +29,21 @@ const App = () => {
 
   return (
     <div className="App" style={{ fontSize: '20px', borderBotton: "1px solid red" }}>
-      <NavBar carritoLenght={carrito.length} />
-      <div>
-        <h3>Pelota de fútbol nike n°5</h3>
-        <div>
-          <button onClick={() => setCarrito([...carrito, "Pelota nike"])}>
-            Agregar al carrito
-          </button>
-        </div>
+      <NavBar carritoLenght={carrito.length} categorias={categorias} />
+      {productos.map((producto, index) =>{
+        return(
+          <div key={index}>
+            <h3>{producto.Title}</h3>
+            <img src={producto.thumbnail} alt="" />
+            <div>
+              <button onClick={() => setCarrito([...carrito, producto])}>
+                Agregar al carrito
+              </button>
+            </div>
       </div>
+        )
+      })}
+      
       <ItemListContainer borderStyle="solid">
         <h4>Articulos deportivos importados</h4>
       </ItemListContainer>
