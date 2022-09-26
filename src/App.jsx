@@ -5,6 +5,7 @@ import Title from './components/Title/title';
 import ItemListContainer from './components/ItemCount/itemlistcontainer';
 import { useEffect, useState } from 'react';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 const App = () => {
   const [carrito, setCarrito] = useState([])
@@ -29,26 +30,30 @@ const App = () => {
   console.log("Me estoy por renderizar");
 
   return (
-    <div className="App" style={{ fontSize: '20px', borderBotton: "1px solid red" }}>
+    <>
+    <BrowserRouter>
       <NavBar carritoLenght={carrito.length} categorias={categorias} />
-      <ItemDetailContainer />
-      {productos.map((producto, index) =>{
-        return(
-          <div key={index}>
-            <h3>{producto.Title}</h3>
-            <img src={producto.thumbnail} alt="" />
-            <div>
-              <button onClick={() => setCarrito([...carrito, producto])}>
+      <Routes>
+        <div className="App" style={{ fontSize: '20px', borderBotton: "1px solid red" }}>
+          {productos.map((producto, index) =>{
+            return(
+              <div key={index}>
+                <h3>{producto.Title}</h3>
+                <img src={producto.thumbnail} alt="" />
+              <div>
+                <button onClick={() => setCarrito([...carrito, producto])}>
                 Agregar al carrito
-              </button>
-            </div>
-      </div>
+                </button>
+              </div>
+        </div>
+      
         )
       })}
       
-      <ItemListContainer borderStyle="solid">
+      <Route path='/' element= {<ItemListContainer borderStyle="solid">
+        <Route path='/categoria/:categoriaId' element={<ItemDetailContainer />} />
         <h4>Articulos deportivos importados</h4>
-      </ItemListContainer>
+      </ItemListContainer>} />
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -66,9 +71,12 @@ const App = () => {
         >
           Learn React
         </a>
-      </header>
-    </div>
-  );
+          </header>
+        </div>
+      </Routes>
+    </BrowserRouter>
+    </>
+    );
 }
 
 const ButtonComponent = () => {

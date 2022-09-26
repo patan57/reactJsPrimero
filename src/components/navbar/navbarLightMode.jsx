@@ -3,29 +3,34 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from 'react-bootstrap/Nav';
 import CartWidget from "../CartWidget/cartWidget";
 import "./navbarLightMode.css";
+import {NavLink} from 'react-router-dom';
 
 function NavBar({ carritoLenght, categorias }) {
     return (
         <>
             <Navbar bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Navbar
-                        <div>Tenes {carritoLenght} productos en el carrito</div>
-                        <div>
-                            <CartWidget float="right" />
-                        </div>
-                    </Navbar.Brand>
+                    <NavLink>
+                        <Navbar.Brand href="#home">Navbar
+                            <div>Tenes {carritoLenght} productos en el carrito</div>
+                            <div>
+                                <CartWidget float="right" />
+                            </div>
+                        </Navbar.Brand>
+                    </NavLink>    
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
-                        <div>
-                            <ul>
-                                {categorias.map(categoria => {
-                                return <ItemNav nombre={categoria} />
-                                })}
-                            </ul>
-                        </div>
+                        <NavLink>
+                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Nav.Link href="#features">Features</Nav.Link>
+                            <Nav.Link href="#pricing">Pricing</Nav.Link>
+                            <div>
+                                <ul>
+                                    {categorias.map(categoria => {
+                                    return <ItemNav nombre={categoria} />
+                                    })}
+                                </ul>
+                            </div>
+                        </NavLink>
                     </Nav>
                 </Container>
             </Navbar>
