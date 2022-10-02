@@ -1,11 +1,14 @@
-import ItemCount from "./ItemCount";
+import ItemCount from "C:\Users\lobos\OneDrive\Escritorio\reactecommerce-app\src\components\ItemCount\ItemCount.jsx";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 
 export const ItemListContainer = ({texto}) => {
     const [data, setData] = useState([]);
+
+    const {categoriaId} = useParams();
 
     useEffect(() => {
         const getData = new Promise(resolve => {
@@ -13,7 +16,11 @@ export const ItemListContainer = ({texto}) => {
                 resolve();
             }, 2000);
         });
+        if (categoriaId) {
+            getData.then(res => res.filter());
+        } else {
         getData.then(res => setData(res));
+        }
     }, [])
 
     const onAdd =(cantidades) => {

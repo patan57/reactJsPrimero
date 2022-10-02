@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import ItemDetail from "../ItemDetail";
+import ItemDetail from "../ItemDetail/index.jsx";
 
 const detailItemImage = { id: 1, image: "C:\Users\lobos\OneDrive\Escritorio\reactecommerce-app\src\components\img\chuck taylor converse.png", title:"Chuck Taylor Converse"};
 

@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/navbar/navbarLightMode';
-import Title from './components/Title/title';
-import ItemListContainer from './components/ItemCount/itemlistcontainer';
+import NavBar from './components/navbar';
+import Title from './components/Title';
+import ItemListContainer from './components/ItemListContainer/index.jsx';
 import { useEffect, useState } from 'react';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/index.jsx';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 const App = () => {
@@ -56,22 +56,13 @@ const App = () => {
       </ItemListContainer>} />
 
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <Title msj="Esto es un ecommerce" color="green">
           <h2>Envíos a domicilio para todo el país</h2>
         </Title>
         <Title msj="12 cuotas sin interés" color="red" />
         <Title msj="Con todas las tarjetas de crédito" color="orange" />
         <ButtonComponent />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-          </header>
+        </header>
         </div>
       </Routes>
     </BrowserRouter>
