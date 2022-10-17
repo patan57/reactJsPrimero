@@ -1,8 +1,9 @@
-import ItemCount from "C:\Users\lobos\OneDrive\Escritorio\reactecommerce-app\src\components\ItemCount\ItemCount.jsx";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import ItemCount from '../ItemCount';
+import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import Title from '../Title';
 
 
 export const ItemListContainer = ({texto}) => {
@@ -23,16 +24,19 @@ export const ItemListContainer = ({texto}) => {
         }
     }, [])
 
-    const onAdd =(cantidades) => {
-        console.log(`Estás por comprar ${cantidades} unidades`);
+    const onAdd = (quantity) => {
+        console.log(`Estás por comprar ${quantity} unidades`);
     }
 
     return( 
+    <>
     <div>
-        <h4 style={{borderStyle: greeting.borderStyle}}></h4>
+        <Title />
+        <h4 style={{borderStyle: texto.borderStyle}}></h4>
         <ItemCount initial={1} stock={5} onAdd={onAdd}/>
     </div>
-    )
+    </>
+    );
 }
 
 export default ItemListContainer;

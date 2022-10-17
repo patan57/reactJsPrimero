@@ -1,13 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/navbar';
 import Title from './components/Title';
 import ItemListContainer from './components/ItemListContainer/index.jsx';
-import { useEffect, useState } from 'react';
+import {useState, useEffect} from 'react';
 import ItemDetailContainer from './components/ItemDetailContainer/index.jsx';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-const App = () => {
+const App = ({textoDeBusqueda}) => {
   const [carrito, setCarrito] = useState([])
   const [productos, setProductos] = useState([])
 
@@ -15,7 +14,7 @@ const App = () => {
   
   const buscarProductos = async () => {
     try{
-      const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=`)
+      const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${textoDeBusqueda}`)
       const data = await response.json();
       setProductos(data.results);
       // console.log(e);
@@ -24,7 +23,7 @@ const App = () => {
   }
   useEffect(() => {
     buscarProductos()
-  }, [])
+  }, [textoDeBusqueda])
 
   console.log(productos)
   console.log("Me estoy por renderizar");

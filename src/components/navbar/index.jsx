@@ -12,7 +12,9 @@ function NavBar({ carritoLenght, categorias }) {
                 <Container>
                     <NavLink>
                         <Navbar.Brand href="#home">Navbar
-                            <div>Tenes {carritoLenght} productos en el carrito</div>
+                            <div>
+                                Tenes {carritoLenght} productos en el carrito
+                            </div>
                             <div>
                                 <CartWidget float="right" />
                             </div>
