@@ -5,7 +5,7 @@ import CartWidget from "../CartWidget";
 import "./navBar.css";
 import {NavLink} from 'react-router-dom';
 
-function NavBar({ carritoLenght, categorias }) {
+export const NavBar = ({ carritoLenght, categorias }) => {
     return (
         <>
             <Navbar bg="dark" variant="dark">
@@ -22,9 +22,9 @@ function NavBar({ carritoLenght, categorias }) {
                     </NavLink>    
                     <Nav className="me-auto">
                         <NavLink>
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#features">Features</Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
+                            <Nav.Link className="" to='/'>Home</Nav.Link>
+                            <Nav.Link className="" to='/'>Features</Nav.Link>
+                            <Nav.Link className="" to='/'>Pricing</Nav.Link>
                             <div>
                                 <ul>
                                     {categorias.map(categoria => {

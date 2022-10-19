@@ -5,6 +5,7 @@ import ItemListContainer from './components/ItemListContainer/index.jsx';
 import {useState, useEffect} from 'react';
 import ItemDetailContainer from './components/ItemDetailContainer/index.jsx';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Cart from './components/Cart';
 
 const App = ({textoDeBusqueda}) => {
   const [carrito, setCarrito] = useState([])
@@ -45,14 +46,12 @@ const App = ({textoDeBusqueda}) => {
                 </button>
               </div>
         </div>
-      
         )
       })}
       
-      <Route path='/' element= {<ItemListContainer borderStyle="solid">
-        <Route path='/categoria/:categoriaId' element={<ItemDetailContainer />} />
+      <Route path='/' element= {<ItemListContainer borderStyle="solid" />} />
+      <Route path='/categoria/:categoriaId' element={<ItemDetailContainer />} />
         <h4>Articulos deportivos importados</h4>
-      </ItemListContainer>} />
 
       <header className="App-header">
         <Title msj="Esto es un ecommerce" color="green">
@@ -61,8 +60,9 @@ const App = ({textoDeBusqueda}) => {
         <Title msj="12 cuotas sin interés" color="red" />
         <Title msj="Con todas las tarjetas de crédito" color="orange" />
         <ButtonComponent />
-        </header>
+      </header>
         </div>
+      <Route path='/' element= {<Cart />} />
       </Routes>
     </BrowserRouter>
     </>

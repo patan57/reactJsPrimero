@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import ItemDetail from "../ItemDetail/index.jsx";
 
-const detailItemImage = { id: 1, image: "C:\Users\lobos\OneDrive\Escritorio\reactecommerce-app\src\components\img\chuck taylor converse.png", title:"Chuck Taylor Converse"};
+const calzado = { id: 1, image: "../img/airJordan6.png", title:"Air Jordan 6 Retro"};
 
 export const ItemDetailContainer = () => { 
     const[data, setData] = useState({});
@@ -9,7 +9,7 @@ export const ItemDetailContainer = () => {
     useEffect(() =>{
         const getData = new Promise(resolve => {
             setTimeout(() =>{
-                resolve(detailItemImage);
+                resolve(calzado);
             },2000);
         });
         getData.then(res => setData(res));

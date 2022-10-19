@@ -1,11 +1,11 @@
 import './item.css';
 import React from 'react';
 
-const Item = () => {
+const Item = ({info}) => {
     return (
-        <a href='' className="">
-            <img src="" alt="" />
-            <p></p>
+        <a href='' className="shoe">
+            <img src={info.image} alt="" />
+            <p>{info.title}</p>
         </a>
     );
 }

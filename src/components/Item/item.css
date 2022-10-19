@@ -1,0 +1,8 @@
+.shoe {
+    display: block;
+    width: 50px;
+}
+
+.shoe img {
+    object-fit: cover;
+}
